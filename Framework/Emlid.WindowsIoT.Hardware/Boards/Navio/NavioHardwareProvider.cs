@@ -138,6 +138,42 @@ namespace Emlid.WindowsIot.Hardware.Boards.Navio
         }
 
         /// <summary>
+        /// Connects to an SPI device if it exists.
+        /// </summary>
+        /// <param name="controllerIndex">Controller index.</param>
+        /// <param name="chipSelectLine">Slave Chip Select Line.</param>
+        /// <param name="bits">Data length in bits.</param>
+        /// <param name="frequency">Frequency in Hz.</param>
+        /// <param name="mode">Communication mode, i.e. clock polarity.</param>
+        /// <param name="sharingMode">Sharing mode.</param>
+        /// <returns>Device when controller and device exist, otherwise null.</returns>
+        public static SpiDevice ConnectSpi(int controllerIndex, int chipSelectLine, int frequency, int bits,
+            SpiMode mode, SpiSharingMode sharingMode = SpiSharingMode.Exclusive)
+        {
+            // Validate
+            if (controllerIndex < 0) throw new ArgumentOutOfRangeException(nameof(controllerIndex));
+
+            // Initialize
+            Initialize();
+
+            // Get controller (return null when doesn't exist)
+            if (Spi.Count < controllerIndex + 1)
+                return null;
+            var controller = Spi[controllerIndex];
+
+            // Connect to device and return (if exists)
+            var settings = new SpiConnectionSettings(chipSelectLine)
+            {
+                ClockFrequency = frequency,
+                DataBitLength = bits,
+                Mode = mode,
+                SharingMode = sharingMode
+            };
+            return controller.GetDevice(settings);
+        }
+
+
+        /// <summary>
         /// Connects to a GPIO pin if it exists.
         /// </summary>
         /// <param name="controllerIndex">Controller index.</param>

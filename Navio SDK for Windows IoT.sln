@@ -99,6 +99,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Emlid", "Emlid", "{ABA42A63
 		Documentation\Emlid\Windows-IoT.md = Documentation\Emlid\Windows-IoT.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navio Motion CS Sample", "Samples\CS\Navio Motion\Navio Motion CS Sample.csproj", "{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -151,6 +153,12 @@ Global
 		{6C7E0CAD-E4A0-4B2E-A723-5AE1EB019932}.Release|ARM.ActiveCfg = Release|ARM
 		{6C7E0CAD-E4A0-4B2E-A723-5AE1EB019932}.Release|ARM.Build.0 = Release|ARM
 		{6C7E0CAD-E4A0-4B2E-A723-5AE1EB019932}.Release|ARM.Deploy.0 = Release|ARM
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}.Debug|ARM.Build.0 = Debug|ARM
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}.Debug|ARM.Deploy.0 = Debug|ARM
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}.Release|ARM.ActiveCfg = Release|ARM
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}.Release|ARM.Build.0 = Release|ARM
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E}.Release|ARM.Deploy.0 = Release|ARM
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -173,5 +181,6 @@ Global
 		{ABE84FDC-D12F-40E9-8F2A-CB10245C4A26} = {7E41DA83-4FEE-4D23-9172-12D93906F9DF}
 		{6C7E0CAD-E4A0-4B2E-A723-5AE1EB019932} = {7E41DA83-4FEE-4D23-9172-12D93906F9DF}
 		{ABA42A63-65A8-424C-A138-8DFD5A56047F} = {0BBA5CC3-BF97-43C8-AD5A-1DC8F968031F}
+		{FA1915CD-6673-4923-B3D4-8DCB6CB4561E} = {7E41DA83-4FEE-4D23-9172-12D93906F9DF}
 	EndGlobalSection
 EndGlobal

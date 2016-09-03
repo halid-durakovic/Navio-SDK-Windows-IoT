@@ -76,6 +76,26 @@
     <Compile Include="..\..\Common\TimeSpanExtensions.cs">
       <Link>TimeSpanExtensions.cs</Link>
     </Compile>
+    <Compile Include="Components\Mpu9250\Mpu9250SleepModeBits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ResetSystemBits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ClockSourceBits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250Placement.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250AxisOffsetReading.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ConfigAccelScale.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ConfigAccelBits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250I2cMasterControlBits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250UserControlBits.cs" />
+    <Compile Include="Components\SpiExtensions.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ConfigGyroScale.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ConfigGyroBits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250PowerManagment2Bits.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250ReadingChangedEventArgs.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250SensorReading.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250Device.cs" />
+    <Compile Include="Boards\Navio\NavioMotionDevice.cs" />
+    <Compile Include="Components\Mpu9250\Mpu9250Registers.cs" />
+    <Compile Include="Filters\MadgwickAHRS.cs" />
+    <Compile Include="Filters\KalmanFilter.cs" />
     <Compile Include="Protocols\Pwm\CppmDecoder.cs" />
     <Compile Include="Components\I2cExtensions.cs" />
     <Compile Include="Boards\Navio\NavioHardwareProvider.cs" />
