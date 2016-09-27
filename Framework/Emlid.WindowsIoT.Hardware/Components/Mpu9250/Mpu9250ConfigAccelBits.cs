@@ -3,7 +3,7 @@
 namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
 {
     /// <summary>
-    /// Bitmask for the <see cref="Mpu9250Register.ConfigAccel"/> register.
+    /// Bitmask for the <see cref="Mpu9250Register.AccelConfig"/> register.
     /// </summary>
     [Flags]
     public enum Mpu9250ConfigAccelBits : byte

@@ -3,7 +3,7 @@
 namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
 {
     /// <summary>
-    /// <see cref="Mpu9250Device.ReadingChanged" />.
+    /// <see cref="Mpu9250Device.OnReadingChanged" />.
     /// </summary>
     public class Mpu9250ReadingChangedEventArgs : EventArgs
     {

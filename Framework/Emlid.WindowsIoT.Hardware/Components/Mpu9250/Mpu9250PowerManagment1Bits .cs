@@ -3,20 +3,11 @@
 namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
 {
     /// <summary>
-    /// Bitmask for the <see cref="Mpu9250Register.PowerManagment2"/> register.
+    /// Bitmask for the <see cref="Mpu9250Register.PowerManagment1"/> register.
     /// </summary>
     [Flags]
-    public enum Mpu9250PowerManagment2Bits : byte
+    public enum Mpu9250PowerManagment1Bits : byte
     {
-        /// <summary>
-        /// Enables or disables the accelerometer and gyroscope.
-        /// </summary>
-        AccelGyro = 0x3F,
-
-        /// <summary>
-        /// Enables or disables gyroscope.
-        /// </summary>
-        Gyro = 0x07,
 
         /// <summary>
         /// Enables or disables z-axis gyroscope.
@@ -32,11 +23,6 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
         /// Enables or disables x-axis gyroscope.
         /// </summary>
         GyroX = 0x04,
-
-        /// <summary>
-        /// Enables or disables the accelerometer.
-        /// </summary>
-        Accel = 0x04,
 
         /// <summary>
         /// Enables or disables z-axis accelerometer.

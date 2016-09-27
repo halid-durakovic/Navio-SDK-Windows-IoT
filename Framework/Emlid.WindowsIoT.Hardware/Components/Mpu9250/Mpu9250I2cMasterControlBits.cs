@@ -9,7 +9,7 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
     public enum Mpu9250I2cMasterControlBits : byte
     {
         /// <summary>
-        /// A 4 bit unsigned value which configures a divider on the MPU-9250 internal 8MHz clock..
+        /// A 4 bit unsigned value which configures a divider on the MPU-9250 internal 8MHz clock.
         /// </summary>
         I2cMasterClock = 0xF,
 

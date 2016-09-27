@@ -6,7 +6,7 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
     /// Defines the <see cref="Mpu9250ConfigGyroBits.GyroScaleSelect"/> register of the device.
     /// </summary>
     [Flags]
-    public enum Mpu9250ConfigGyroScale: byte
+    public enum Mpu9250GyroScale: byte
     {
         /// <summary>
         /// Selects gyroscope scale of ±250°/sec (dps).

@@ -3,10 +3,10 @@
 namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
 {
     /// <summary>
-    /// Bitmask for the <see cref="Mpu9250Register.PowerManagment1"/> register.
+    /// Defines the <see cref="Mpu9250ClockSource"/> register of the device.
     /// </summary>
     [Flags]
-    public enum Mpu9250ClockSourceBits : byte
+    public enum Mpu9250ClockSource : byte
     {
         /// <summary>
         /// Internal 20MHz oscillator

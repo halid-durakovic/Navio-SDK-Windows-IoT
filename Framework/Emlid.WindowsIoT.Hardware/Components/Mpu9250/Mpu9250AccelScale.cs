@@ -6,7 +6,7 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
     /// Defines the <see cref="Mpu9250ConfigAccelBits.AccelScaleSelect"/> register of the device.
     /// </summary>
     [Flags]
-    public enum Mpu9250ConfigAccelScale: byte
+    public enum Mpu9250AccelScale: byte
     {
         /// <summary>
         /// Selects accelerometer scale of ±2g.

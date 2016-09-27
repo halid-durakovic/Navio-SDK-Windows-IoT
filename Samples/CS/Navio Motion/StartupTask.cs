@@ -21,20 +21,22 @@ namespace Emlid.WindowsIot.Samples.NavioMotion
         public void Run(IBackgroundTaskInstance taskInstance)
         {
             // Initialize motion device and reset to default config.
-            var motion = NavioMotionDevice.Initialize(Mpu9250Placement.P1, true);
-            motion.FusionEnabled = true;
+            var motion = NavioMotionDevice.Initialize();
 
             // Verify the motion sensor is connected, accessable and ready for use.
             if (motion.IsConnected == false)
-                Debug.WriteLine("Motion Device is not connected");
+                Debug.WriteLine("****** Motion Device is not connected *******");
 
-            int i = 0;
-            while (i < 1000)
+            while (true)
             {
-                motion.Update();
-                Debug.WriteLine(motion.SensorReading.ToString());
-                Task.Delay(100).Wait();
-                i = i + 1;
+                //string format = "ax:{0:0.000} ay:{1:0.000} az:{2:0.000} gx:{3:0.000} gy:{4:0.000} gz:{5:0.000} mx:{6:0.000} my:{7:0.000} mz:{8:0.000}";
+                //double[] data = motion.ReadMotion9();
+                //Debug.WriteLine(string.Format(format, data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]));
+
+                Debug.WriteLine(motion.ReadAll().ToString());
+
+                //Debug.WriteLine("");
+                Task.Delay(1000).Wait();
             }
         }
     }

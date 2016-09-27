@@ -22,8 +22,8 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
         /// <summary>
         /// Madgwick AHRS algorithm object.
         /// </summary>
-        private MadgwickAHRS _ahrs = new MadgwickAHRS(1f / 256f, 0.1f);
- 
+        private MadgwickAHRS _ahrs = new MadgwickAHRS(Mpu9250Device.MadgwickSamplePeriod, Mpu9250Device.MadgwickBeta);
+
         #endregion
 
         #region Public Properties
@@ -31,52 +31,47 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
         /// <summary>
         /// Accelerometer x-axis in meters/second^2. 
         /// </summary>
-        public float AccelXAxis { get; set; }
+        public double AccelXAxis { get; set; }
 
         /// <summary>
         /// Accelerometer y-axis in meters/second^2. 
         /// </summary>
-        public float AccelYAxis { get; set; }
+        public double AccelYAxis { get; set; }
 
         /// <summary>
         /// Accelerometer z-axis in meters/second^2.
         /// </summary>
-        public float AccelZAxis { get; set; }
+        public double AccelZAxis { get; set; }
 
         /// <summary>
         /// Gyroscope x-axis in degrees per second. 
         /// </summary>
-        public float GyroXAxis { get; set; }
+        public double GyroXAxis { get; set; }
 
         /// <summary>
         /// Gyroscope y-axis in degrees per second. 
         /// </summary>
-        public float GyroYAxis { get; set; }
+        public double GyroYAxis { get; set; }
 
         /// <summary>
         /// Gyroscope z-axis in degrees per second. 
         /// </summary>
-        public float GyroZAxis { get; set; }
+        public double GyroZAxis { get; set; }
 
         /// <summary>
         /// Magnetometer x-axis in micro-teslas.
         /// </summary>
-        public float MagXAxis { get; set; }
+        public double MagXAxis { get; set; }
 
         /// <summary>
         /// Magnetometer y-axis in micro-teslas.
         /// </summary>
-        public float MagYAxis { get; set; }
+        public double MagYAxis { get; set; }
 
         /// <summary>
         /// Magnetometer z-axis in micro-teslas.
         /// </summary>
-        public float MagZAxis { get; set; }
-
-        /// <summary>
-        /// MPU-9250 die temperature in celsius.
-        /// </summary>
-        public float Temperature { get; set; }
+        public double MagZAxis { get; set; }
 
         /// <summary>
         /// Quaternion w-axis in degrees.
@@ -97,6 +92,7 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
         /// Quaternion z-axis in quaternion units.
         /// </summary>
         public float QuaternionZAxis { get; set; }
+
         /// <summary>
         /// Euler heading angles in degrees.
         /// </summary>
@@ -121,12 +117,40 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
         /// </summary>
         public void Update()
         {
-            _ahrs.Update(Deg2rad(GyroXAxis), Deg2rad(GyroYAxis), Deg2rad(GyroZAxis), AccelXAxis, AccelYAxis, AccelZAxis, MagXAxis, MagYAxis, MagZAxis);
- 
+
+            if (MagXAxis == 0 || MagYAxis == 0 || MagZAxis == 0)
+            {
+                _ahrs.Update(
+                    Deg2rad((float)GyroXAxis),
+                    Deg2rad((float)GyroYAxis),
+                    Deg2rad((float)GyroZAxis),
+                    (float)AccelXAxis,
+                    (float)AccelYAxis,
+                    (float)AccelZAxis
+                    );
+            }
+            else
+            {
+
+                _ahrs.Update(
+                    Deg2rad((float)GyroXAxis),
+                    Deg2rad((float)GyroYAxis),
+                    Deg2rad((float)GyroZAxis),
+                    (float)AccelXAxis,
+                    (float)AccelYAxis,
+                    (float)AccelZAxis,
+                    (float)MagXAxis,
+                    (float)MagYAxis,
+                    (float)MagZAxis
+                    );
+
+            }
+
             QuaternionWAxis = _ahrs.Quaternion[0];
             QuaternionXAxis = _ahrs.Quaternion[1];
             QuaternionYAxis = _ahrs.Quaternion[2];
             QuaternionZAxis = _ahrs.Quaternion[3];
+
             EulerRoll = _ahrs.Euler[0];
             EulerPitch = _ahrs.Euler[1];
             EulerYaw = _ahrs.Euler[2];
@@ -155,8 +179,10 @@ namespace Emlid.WindowsIot.Hardware.Components.Mpu9250
             //return string.Format(CultureInfo.CurrentCulture,
             //    Resources.Strings.MS5611MeasurementStringFormat, Pressure, Temperature);
 
-            return string.Format("Accel: x={0} y={1} z={2} Gyro: x={3} y={4} z={5} Mag: x={6} y={7} z={8} Quat: w={9} x={10} y={11} z={12} Euler: r={13} p={14} y={15} Temp: {16}",
-                AccelXAxis, AccelYAxis, AccelZAxis, GyroXAxis, GyroYAxis, GyroZAxis, MagXAxis, MagYAxis, MagZAxis, QuaternionWAxis, QuaternionXAxis, QuaternionYAxis, QuaternionZAxis, EulerRoll, EulerPitch, EulerYaw, Temperature);
+            //return string.Format("Accel: x={0} y={1} z={2} Gyro: x={3} y={4} z={5} Mag: x={6} y={7} z={8} Quat: w={9} x={10} y={11} z={12} Euler: r={13} p={14} y={15} Temp: {16}",
+            //    AccelXAxis, AccelYAxis, AccelZAxis, GyroXAxis, GyroYAxis, GyroZAxis, MagXAxis, MagYAxis, MagZAxis, QuaternionWAxis, QuaternionXAxis, QuaternionYAxis, QuaternionZAxis, EulerRoll, EulerPitch, EulerYaw, Temperature);
+            return string.Format("ax:{0:0.000} ay:{1:0.000} az:{2:0.000} gx:{3:0.000} gy:{4:0.000} gz:{5:0.000} mx:{6:0.000} my:{7:0.000} mz:{8:0.000} qw:{9:0.000} qx:{10:0.000} qy:{11:0.000} qz:{12:0.000} ep:{13:0.000} er:{14:0.000} ey:{15:0.000}",
+                AccelXAxis, AccelYAxis, AccelZAxis, GyroXAxis, GyroYAxis, GyroZAxis, MagXAxis, MagYAxis, MagZAxis, QuaternionWAxis, QuaternionXAxis, QuaternionYAxis, QuaternionZAxis, EulerPitch, EulerRoll, EulerYaw);
         }
 
         #endregion
