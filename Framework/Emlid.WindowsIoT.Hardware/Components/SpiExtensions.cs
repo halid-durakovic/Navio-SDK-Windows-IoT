@@ -83,6 +83,19 @@ namespace Emlid.WindowsIot.Hardware.Components
         }
 
         /// <summary>
+        /// Writes data then reads one or more bytes.
+        /// </summary>
+        /// <param name="device">Device to use.</param>
+        /// <param name="writeData">Data to write.</param>
+        /// <returns>Read data bytes.</returns>
+        public static byte[] WriteReadBytes(this SpiDevice device, byte[] writeData)
+        {
+            byte[] readBuffer = new byte[writeData.Length];
+            device.TransferFullDuplex(writeData, readBuffer);
+            return readBuffer;
+        }
+
+        /// <summary>
         /// Writes data then reads one or more bytes into an existing buffer.
         /// </summary>
         /// <param name="device">Device to use.</param>

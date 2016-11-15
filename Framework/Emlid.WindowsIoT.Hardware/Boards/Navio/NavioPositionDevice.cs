@@ -1,15 +1,14 @@
 ﻿using System;
 
 using Windows.Devices.Spi;
-using Emlid.WindowsIot.Hardware.Components;
-using Emlid.WindowsIot.Hardware.Components.Neo;
+using Emlid.WindowsIot.Hardware.Components.Ublox;
 
 namespace Emlid.WindowsIot.Hardware.Boards.Navio
 {
     /// <summary>
     /// Navio high performance GPS positioning device (NEO-M8N hardware device).
     /// </summary>
-    public class NavioPositionDevice : NeoM8nDevice
+    public class NavioPositionDevice : Neom8nDevice
     {
         #region Constants
 
@@ -26,7 +25,7 @@ namespace Emlid.WindowsIot.Hardware.Boards.Navio
         /// <summary>
         /// SPI operating frequency of the NEO-M8N chip on the Navio2 board.
         /// </summary>
-        public const int Frequency = 1000000;
+        public const int Frequency = 5500000; // 1000000
 
         /// <summary>
         /// SPI data length in bits of the NEO-M8N chip on the Navio2 board.
