@@ -68,7 +68,16 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
         /// <returns></returns>
         public bool IsConfig
         {
-            get { return PayloadMetadata.IsConfig; }
+            get { return PayloadMetadata.IsConfiguration; }
+        }
+
+        /// <summary>
+        /// Indicate the UBX message is acknowledged by a response message
+        /// </summary>
+        /// <returns></returns>
+        public bool IsAcknowledged
+        {
+            get { return PayloadMetadata.IsAcknowledged; }
         }
 
         /// <summary>

@@ -72,7 +72,16 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
     /// Indicate the UBX message is a configuration message 
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    sealed class ConfigAttribute : Attribute
+    sealed class ConfigurationAttribute : Attribute
+    {
+
+    }
+
+    /// <summary>
+    /// Indicate the UBX message provides an acknowledgment response message 
+    /// </summary>
+    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
+    sealed class AcknowledgedAttribute : Attribute
     {
 
     }

@@ -4,9 +4,10 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
 {
     /// <summary>
     /// Defines the UBX protocol poll message rate configuration.
-    /// </summary>
+    /// </summary>  
+    [Configuration]
+    [Acknowledged]
     [CLSCompliant(false)]
-    [Config]
     [Message(MessageClass.Cfg, 0x01, MessageType.Get | MessageType.Set)]
     public class PollingMessageRate : MessageBase
     {

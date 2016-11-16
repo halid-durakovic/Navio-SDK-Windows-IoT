@@ -6,7 +6,8 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
     /// Defines the UBX protocol port configuration.
     /// </summary>
     /// 
-    [Config]
+    [Configuration]
+    [Acknowledged]
     [CLSCompliant(false)]
     [Message(MessageClass.Cfg, 0x00, MessageType.Get | MessageType.Set)]
     public class PortConfiguration : MessageBase

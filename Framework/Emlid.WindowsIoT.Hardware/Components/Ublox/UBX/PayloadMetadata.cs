@@ -30,7 +30,12 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
         /// <summary>
         /// Indicate if the message is a UBX configuration message 
         /// </summary>
-        public bool IsConfig { get; set; }
+        public bool IsConfiguration { get; set; }
+
+        /// <summary>
+        /// Indicate the UBX message is acknowledged by a response message 
+        /// </summary>
+        public bool IsAcknowledged { get; set; }
 
         /// <summary>
         /// Message name of the UBX message

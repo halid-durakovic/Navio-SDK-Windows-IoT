@@ -51,7 +51,6 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox
             return false;
         }
 
-
         /// <summary>
         /// 
         /// </summary>

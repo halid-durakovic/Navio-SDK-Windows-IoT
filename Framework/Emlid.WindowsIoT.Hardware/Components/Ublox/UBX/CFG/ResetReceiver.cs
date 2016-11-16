@@ -6,7 +6,7 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
     /// Defines the reset receiver / clear backup data UBX protocol message.
     /// </summary>
     [CLSCompliant(false)]
-    [Config]
+    [Configuration]
     [Message(MessageClass.Cfg, 0x04, MessageType.Command)]
     public class ResetReceiver : MessageBase
     {

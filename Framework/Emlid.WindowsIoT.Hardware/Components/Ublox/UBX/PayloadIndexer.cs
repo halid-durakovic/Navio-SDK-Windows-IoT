@@ -22,7 +22,8 @@ namespace Emlid.WindowsIot.Hardware.Components.Ublox.Ubx
             var message = type.GetTypeInfo().GetCustomAttribute<MessageAttribute>();
             var properties = IterateProps(type);
 
-            metadata.IsConfig = type.GetTypeInfo().GetCustomAttributes(typeof(ConfigAttribute), true).Any();
+            metadata.IsConfiguration = type.GetTypeInfo().GetCustomAttributes(typeof(ConfigurationAttribute), true).Any();
+            metadata.IsAcknowledged = type.GetTypeInfo().GetCustomAttributes(typeof(AcknowledgedAttribute), true).Any();
             metadata.ClassID = (byte)message.ClassID;
             metadata.MessageID = message.MessageID;
             metadata.MessageType = message.MessageType;

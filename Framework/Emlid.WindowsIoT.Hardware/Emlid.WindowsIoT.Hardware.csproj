@@ -77,6 +77,7 @@
       <Link>TimeSpanExtensions.cs</Link>
     </Compile>
     <Compile Include="Boards\Navio\NavioPositionDevice.cs" />
+    <Compile Include="Boards\Navio\NavioUcenterDevice.cs" />
     <Compile Include="Components\Mpu9250\Mpu9250MagMode.cs" />
     <Compile Include="Components\Mpu9250\Mpu9250OperationsMode.cs" />
     <Compile Include="Components\Mpu9250\Mpu9250MagScale.cs" />
@@ -91,11 +92,10 @@
     <Compile Include="Components\Mpu9250\Mpu9250ConfigAccelBits.cs" />
     <Compile Include="Components\Mpu9250\Mpu9250I2cMasterControlBits.cs" />
     <Compile Include="Components\Mpu9250\Mpu9250UserControlBits.cs" />
-    <Compile Include="Components\Ublox\ClockSensorReading.cs" />
     <Compile Include="Components\Ublox\IMessageResult.cs" />
     <Compile Include="Components\Ublox\MessageFactory.cs" />
     <Compile Include="Components\Ublox\GeodeticSensorReading.cs" />
-    <Compile Include="Components\Ublox\PollingRequests.cs" />
+    <Compile Include="Components\Ublox\MessageReader.cs" />
     <Compile Include="Components\Ublox\UBX\Bytes.cs" />
     <Compile Include="Components\Ublox\UBX\CFG\Port Configuration.cs" />
     <Compile Include="Components\Ublox\UBX\CFG\PollingMessageRate.cs" />

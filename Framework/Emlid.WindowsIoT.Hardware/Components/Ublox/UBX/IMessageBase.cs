@@ -8,6 +8,17 @@
         /// <summary>
         /// 
         /// </summary>
+        /// <returns></returns>
+        bool IsConfig { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        bool IsAcknowledged { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="message"></param>
         /// <returns></returns>
         bool TryParse(byte[] message);
